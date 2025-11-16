@@ -1,0 +1,12 @@
+[package]
+name = "zen-youtube-downloader"
+version = "1.0.0"
+
+[dependencies]
+python = "3.11"   # or any version Wasmer supports
+
+[script]
+run = "python app.py"
+
+[fs]
+"/" = "."

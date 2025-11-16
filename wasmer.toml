@@ -1,9 +1,11 @@
 [package]
 name = "zen-youtube-downloader"
-version = "1.0.0"
+version = "0.1.0"
 
 [dependencies]
-python = "3.11"   # or any version Wasmer supports
+python = "3.11"
+flask = "2.3.3"
+pytube = "15.0.0"
 
 [script]
 run = "python app.py"

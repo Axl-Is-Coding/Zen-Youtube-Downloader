@@ -16,7 +16,17 @@ def download():
     stream = yt.streams.get_highest_resolution()
     file_path = stream.download()
 
-    return send_file(file_path, as_attachment=True)
+    # Send file as attachment
+    response = send_file(file_path, as_attachment=True)
+
+    # Remove the downloaded file after sending
+    try:
+        os.remove(file_path)
+    except Exception as e:
+        print(f"Error deleting file: {e}")
+
+    return response
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    # Use 0.0.0.0 so Wasmer can access it externally
+    app.run(host="0.0.0.0", port=8000)
